@@ -15,9 +15,9 @@ cekUser($DBcon);
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="shortcut icon" href="./img/logo-magelang.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
     <title>Peta ZNT - Dashboard</title>
-    <link rel="shortcut icon" sizes="363x492" href="assets/img/logo-magelang.png" />
+    <link rel="shortcut icon" sizes="363x492" href="assets/img/logo.png" />
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -187,11 +187,11 @@ cekUser($DBcon);
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="?modul=petataatpbb">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                 <div class="sidebar-brand-icon">
-                    <img src="assets/img/logo-magelang.png" style="max-width:35px;">
+                    <img src="assets/img/logo.png" style="max-width:35px;">
                 </div>
-                <div class="sidebar-brand-text mx-3">PETA ZNT</div>
+                <div class="sidebar-brand-text mx-3">ADMINISTRASI</div>
             </a>
 
             <!-- Divider -->
@@ -204,21 +204,42 @@ cekUser($DBcon);
                     <span>Dashboard</span></a>
             </li> -->
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
             <!-- Heading -->
             <!-- <div class="sidebar-heading">
                 Menu
             </div> -->
 
+            
+            <?php
+            if ($_SESSION['peran'] == md5(100)) {
+                ?>
+                <!-- Master -->
+                <div class="sidebar-heading">
+                    Master
+                </div>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="?modul=users">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+                <?php
+            }
+            ?>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="?modul=pbb">
+                <a class="nav-link collapsed" href="?modul=entri_pendataan">
                     <i class="fas fa-fw fa-list"></i>
-                    <span>PBB</span>
+                    <span>Entri Pendataan</span>
                 </a>
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="?modul=petapbb">
+                    <i class="fas fa-map"></i>
+                    <span>Daftar Pendataan</span>
+                </a>
+                <!-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Peta</span>
                 </a>
@@ -232,17 +253,9 @@ cekUser($DBcon);
                         <a class="collapse-item" href="?modul=update_nop">Data Peta Bidang</a>
                         <a class="collapse-item" href="?modul=gen_peta_njop">Generate Peta NJOP</a>
                         <a class="collapse-item" href="?modul=objek_baru">Peta Objek Paru</a>
-                        <!-- <a class="collapse-item" href="?modul=petaznt">Update Peta NOP</a> -->
-                        <!-- <a class="collapse-item" href="?modul=petaznt">Peta ZNT</a> -->
-                        <!-- <a class="collapse-item" href="?modul=petapbb">Peta PBB</a> -->
-                        <!-- <a class="collapse-item" href="?modul=petazonanjop">Peta Zona NJOP</a> -->
                     </div>
-                </div>
-                <a class="nav-link collapsed" href="?modul=petapbb">
-                    <i class="fas fa-map"></i>
-                    <span>Peta PBB</span>
-                </a>
-                <a class="nav-link collapsed" href="?modul=petataatpbb">
+                </div> -->
+                <!-- <a class="nav-link collapsed" href="?modul=petataatpbb">
                     <i class="fas fa-map"></i>
                     <span>Peta Ketaatan PBB</span>
                 </a>
@@ -269,7 +282,7 @@ cekUser($DBcon);
                 </a>
                 <div id="collapsePetaZNT" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <!-- <a class="collapse-item" href="?modul=petazntkota">Peta ZNT Kota</a> -->
+                        <a class="collapse-item" href="?modul=petazntkota">Peta ZNT Kota</a>
                         <a class="collapse-item" href="?modul=petazntsismiop">Peta ZNT SISMIOP</a>
                         <a class="collapse-item" href="?modul=petazonanilaitanah">Pembentukan Peta ZNT</a>
                         <a class="collapse-item" href="?modul=petaznt">Pembentukan Peta ZNT Baru</a>
@@ -295,91 +308,9 @@ cekUser($DBcon);
                         <a class="collapse-item" href="?modul=daf_log_petaznt">Log Pembentukan Peta ZNT</a>
                         <a class="collapse-item" href="?modul=daf_log_perubahan_peta_znt">Log Perubahan Peta ZNT</a>
                     </div>
-                </div>
+                </div> -->
             </li>
 
-            <!-- Nav Item - Utilities Collapse Menu
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
-            </li>
-             -->
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <?php
-            if ($_SESSION['peran'] == md5(100)) {
-            ?>
-                <!-- Master -->
-                <div class="sidebar-heading">
-                    Master
-                </div>
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="?modul=users">
-                        <i class="fas fa-fw fa-user"></i>
-                        <span>Users</span>
-                    </a>
-                </li>
-            <?php
-            }
-            ?>
-
-            <!-- Heading
-            <div class="sidebar-heading">
-                Addons
-            </div>
-             -->
-            <!-- Nav Item - Pages Collapse Menu
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li>
-             -->
-            <!-- Nav Item - Charts
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-            -->
-            <!-- Nav Item - Tables
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
-             -->
-            <!-- Divider
-            <hr class="sidebar-divider d-none d-md-block">
-             -->
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
