@@ -3,11 +3,15 @@ if (isset($_GET['modul'])) {
 	switch ($_GET['modul']) {
 		case "users":
 			include "admin/modul/mod_users.php";
-		break;
+			break;
 
-		case "entri_pendatan":
+		case "entri_pendataan":
 			include "admin/modul/mod_entri_pendataan.php";
-		break;
+			break;
+
+		case "daftar_pendataan":
+			include "admin/modul/mod_daftar_pendataan.php";
+			break;
 	}
 } else {
 	include "office/modul/404.html";

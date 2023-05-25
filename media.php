@@ -16,7 +16,7 @@ cekUser($DBcon);
     <meta name="author" content="">
 
     <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
-    <title>Peta ZNT - Dashboard</title>
+    <title>Akuntansi MDA - Dashboard</title>
     <link rel="shortcut icon" sizes="363x492" href="assets/img/logo.png" />
 
     <!-- Custom fonts for this template-->
@@ -209,10 +209,10 @@ cekUser($DBcon);
                 Menu
             </div> -->
 
-            
+
             <?php
             if ($_SESSION['peran'] == md5(100)) {
-                ?>
+            ?>
                 <!-- Master -->
                 <div class="sidebar-heading">
                     Master
@@ -223,19 +223,19 @@ cekUser($DBcon);
                         <span>Users</span>
                     </a>
                 </li>
-                <?php
+            <?php
             }
             ?>
             <!-- Divider -->
             <hr class="sidebar-divider">
-            
+
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="?modul=entri_pendataan">
                     <i class="fas fa-fw fa-list"></i>
                     <span>Entri Pendataan</span>
                 </a>
-                <a class="nav-link collapsed" href="?modul=petapbb">
+                <a class="nav-link collapsed" href="?modul=daftar_pendataan">
                     <i class="fas fa-map"></i>
                     <span>Daftar Pendataan</span>
                 </a>
