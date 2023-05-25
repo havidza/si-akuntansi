@@ -36,10 +36,8 @@
 		if($row['group_user']==100){ 
 			$row['group_user'] = "Admin";
 		}elseif ($row['group_user']==101){ 
-			$row['group_user'] = "Operator";
-		}elseif ($row['group_user']==1000){ 
-			$row['group_user'] = "Stakeholder";
-		}	
+			$row['group_user'] = "Direktur";
+		}
 		
 	
 		$no++;
@@ -48,4 +46,3 @@
 	$result['result'] = $items;
 
 	echo json_encode($result);
-?>
