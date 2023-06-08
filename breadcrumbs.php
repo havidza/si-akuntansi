@@ -1,6 +1,9 @@
 <?php
 if (isset($_GET['modul'])) {
 	switch ($_GET['modul']) {
+		case 'dashboard':
+			echo "<b>DASHBOARD</b>";
+			break;
 		case "entri_pendataan":
 			echo "<b>ENTRI PENDATAAN</b>";
 			break;

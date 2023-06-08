@@ -1,6 +1,10 @@
 <?php
 if (isset($_GET['modul'])) {
 	switch ($_GET['modul']) {
+		case 'dashboard':
+			include "admin/modul/home.php";
+			break;
+			
 		case "users":
 			include "admin/modul/mod_users.php";
 			break;

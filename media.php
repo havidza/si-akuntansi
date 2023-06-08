@@ -84,6 +84,7 @@ cekUser($DBcon);
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css" integrity="sha512-kq3FES+RuuGoBW3a9R2ELYKRywUEQv0wvPTItv3DSGqjpbNtGWVdvT8qwdKkqvPzT93jp8tSF4+oN4IeTEIlQA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
 
     <style>
         .tooltip {
@@ -210,27 +211,16 @@ cekUser($DBcon);
             </div> -->
 
 
-            <?php
-            if ($_SESSION['peran'] == md5(100)) {
-            ?>
-                <!-- Master -->
-                <div class="sidebar-heading">
-                    Master
-                </div>
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="?modul=users">
-                        <i class="fas fa-fw fa-user"></i>
-                        <span>Users</span>
-                    </a>
-                </li>
-            <?php
-            }
-            ?>
+            
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
+                <a class="nav-link collapsed" href="?modul=dashboard">
+                    <i class="fas fa-fw fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
                 <a class="nav-link collapsed" href="?modul=entri_pendataan">
                     <i class="fas fa-fw fa-list"></i>
                     <span>Entri Pendataan</span>
@@ -310,6 +300,23 @@ cekUser($DBcon);
                     </div>
                 </div> -->
             </li>
+            <?php
+            if ($_SESSION['peran'] == md5(100)) {
+            ?>
+                <hr class="sidebar-divider my-0">
+                <!-- Master -->
+                <div class="sidebar-heading">
+                    Master
+                </div>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="?modul=users">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+            <?php
+            }
+            ?>
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -432,6 +439,10 @@ cekUser($DBcon);
     <!-- DataTable -->
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <script src="assets/js/bootstrap-filestyle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 
 </body>
 
