@@ -15,7 +15,7 @@ cekUser($DBcon);
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
     <title>Akuntansi MDA - Dashboard</title>
     <link rel="shortcut icon" sizes="363x492" href="assets/img/logo.png" />
 
@@ -220,6 +220,10 @@ cekUser($DBcon);
                 <a class="nav-link collapsed" href="?modul=dashboard">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Dashboard</span>
+                </a>
+                <a class="nav-link collapsed" href="?modul=daftar_rekening">
+                    <i class="fas fa-map"></i>
+                    <span>Daftar Rekening</span>
                 </a>
                 <a class="nav-link collapsed" href="?modul=entri_pendataan">
                     <i class="fas fa-fw fa-list"></i>

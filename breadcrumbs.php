@@ -13,6 +13,9 @@ if (isset($_GET['modul'])) {
 		case "daftar_pendataan":
 			echo "<b>DAFTAR PENDATAAN</b>";
 			break;
+		case "daftar_rekening":
+			echo "<b>DAFTAR REKENING</b>";
+			break;
 
 		default:
 			// include "modul/assesment.php";

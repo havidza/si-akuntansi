@@ -16,6 +16,10 @@ if (isset($_GET['modul'])) {
 		case "daftar_pendataan":
 			include "admin/modul/mod_daftar_pendataan.php";
 			break;
+
+		case "daftar_rekening":
+			include "admin/modul/mod_daftar_rekening.php";
+			break;
 	}
 } else {
 	include "office/modul/404.html";
