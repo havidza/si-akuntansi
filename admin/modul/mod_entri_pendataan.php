@@ -33,11 +33,8 @@
                 <div class="form-group row">
                     <label for="jenis" class="col-sm-2 col-form-label">Jenis Pendataan</label>
                     <div class="col-sm-4">
-                        <select name="jenis" id="jenis" class="form-control">
-                            <option value="">--Pilih Jenis Pendataan--</option>
-                            <option value="1">Pengeluaran</option>
-                            <option value="2">Pemasukan</option>
-                            <option value="3">Aset</option>
+                        <select name="jenis" id="jenis" class="form-control" onchange="selectJenis()">
+                            <option value=""></option>
                         </select>
                     </div>
                 </div>
@@ -89,6 +86,16 @@
         });
         $('#tgl_entri').val(today());
     })
+
+    function selectJenis(){
+        $.ajax({
+            type: "POST",
+            url: './admin/model/cb_jenis_rek.php',
+            success: function(data){
+                $("#jenis").html(data);
+            }
+        });
+    }
 
     function saveData(){
         $('#preload').show();
