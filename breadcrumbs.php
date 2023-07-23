@@ -16,6 +16,15 @@ if (isset($_GET['modul'])) {
 		case "daftar_rekening":
 			echo "<b>DAFTAR REKENING</b>";
 			break;
+		case "laporan_jurnal":
+			echo "<b>JURNAL UMUM</b>";
+			break;
+		case "buku_besar":
+			echo "<b>BUKU BESAR</b>";
+			break;
+		case "neraca_saldo":
+			echo "<b>NERACA SALDO</b>";
+			break;
 
 		default:
 			// include "modul/assesment.php";

@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL);
-ini_set('display_errors', TRUE);
+ini_set('display_errors', FALSE);
 ini_set('display_startup_errors', FALSE);
 
 if(PHP_SAPI == 'cli') die('This example should only be run from a web browser');

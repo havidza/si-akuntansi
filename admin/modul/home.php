@@ -43,6 +43,12 @@
                 </table><br>
             </div>
         </div>      
+        <div class="row justify-content-center">
+            <div class="col-sm-12 text-center">
+                <h3></h3>
+                <hr>
+            </div>
+        </div>
     </div>
 </div>
 <script>

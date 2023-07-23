@@ -85,6 +85,7 @@
             defaultDate: today()
         });
         $('#tgl_entri').val(today());
+        selectJenis();
     })
 
     function selectJenis(){
@@ -98,6 +99,16 @@
     }
 
     function saveData(){
+        var a = $('#judul').val();
+        var b = $('#jenis').val();
+        var c = $('#tgl_kasus').val();
+        var d = $('#nominal').val();
+        var e = $('#deskripsi').val();
+
+        if(a == "" || b == "" || c == "" || d == "" || e == ""){
+            toastr.error("Mohon lengkapi data !", 'Error');
+            return;
+        }
         $('#preload').show();
 
         var formData = new FormData();

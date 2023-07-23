@@ -233,6 +233,17 @@ cekUser($DBcon);
                     <i class="fas fa-map"></i>
                     <span>Daftar Pendataan</span>
                 </a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Laporan</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="?modul=laporan_jurnal">Laporan Jurnal</a>
+                        <a class="collapse-item" href="?modul=buku_besar">Buku Besar</a>
+                        <a class="collapse-item" href="?modul=neraca_saldo">Neraca Saldo</a>
+                    </div>
+                </div>
                 <!-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Peta</span>

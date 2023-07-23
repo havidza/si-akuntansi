@@ -154,12 +154,15 @@
     }
 
     function simpanData(){
+        // if($('#fm').form('enableValidation').form('validate')==false) return false;
+
         var a = $('#nama_rek').val();
         var b = $('#deskripsi_rek').val();
         var c = $('#jenis_rek').val();
 
-        if(a, b, c == ""){
+        if(a == "" || b == "" || c == ""){
             toastr.error("Mohon lengkapi data !", 'Error');
+            return;
         }
 
         var formData = new FormData();
