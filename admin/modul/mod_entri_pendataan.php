@@ -17,11 +17,6 @@
                     <label for="tgl_entri" class="col-sm-2 col-form-label">Tanggal Entri</label>
                     <div class="col-sm-2">
                         <input type="date" class="form-control" id='tgl_entri' name='tgl_entri' disabled>
-                        <!-- <div class="input-group date" id='datepick'>
-                            <div class="input-group-addon">
-                                <i class="fa fa-calendar"></i>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
                 <div class="form-group row">
@@ -33,7 +28,7 @@
                 <div class="form-group row">
                     <label for="jenis" class="col-sm-2 col-form-label">Jenis Pendataan</label>
                     <div class="col-sm-4">
-                        <select name="jenis" id="jenis" class="form-control" onchange="selectJenis()">
+                        <select name="jenis" id="jenis" class="form-control">
                             <option value=""></option>
                         </select>
                     </div>
@@ -60,6 +55,9 @@
                     <label for="lampiran" class="col-sm-2 col-form-label">Lampiran</label>
                     <div class="col-sm-4">
                         <input type="file" class="filestyle" id="lampiran" name="lampiran" data-buttonText="Lampiran">
+                    </div>
+                    <div class="col-sm-6" style="color: red; position: relative;">
+                        <span style="position: absolute;bottom: 8px;">Format file bisa PDF, JPG, PNG, word, excel, atau mp4 dan maksimal ukuran file 60Mb </span>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -146,6 +144,7 @@
         $('#judul').val("");
         $('#jenis').val("");
         $('#tgl_kasus').val("");
+        $('#nominal').val("");
         $('#deskripsi').val("");
         $('#lampiran').val("");
         $(":file").filestyle('clear');
