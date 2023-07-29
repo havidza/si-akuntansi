@@ -24,12 +24,14 @@
     $no = 1;
     while($row = $rs->fetch(PDO::FETCH_ASSOC)){
         $row['no'] = $no;
+        $row['tgl_kasus_e'] = $row['tgl_kasus'];
         $row['tgl_kasus'] = balikTanggalIndo($row['tgl_kasus']);
         $row['tgl_entri'] = balikTanggalJamIndo($row['tgl_entri']);
         $row['aksi'] = '
-        <span onClick="hapusData('."'".$row["id_pendataan"]."'".')" style="cursor:pointer" class="btndel tip" data-toggle="tooltip" title="Hapus">&nbsp;<i class="fa fa-trash"></i>;</span>
+        <span onClick="hapusData('."'".$row["id_pendataan"]."'".')" style="cursor:pointer" class="btndel tip" data-toggle="tooltip" title="Hapus">&nbsp;<i class="fa fa-trash"></i>&nbsp;</span>
         &nbsp;
         <span onClick="ubahData('."'".$row["id_pendataan"]."'".')" style="cursor:pointer" class="btnedit tip" data-toggle="tooltip" title="Edit">&nbsp;<i class="fa fa-pen"></i>&nbsp;</span>';
+        $row['nominal_rp'] = number_format($row['nominal'], 0, ",", ".");
 
         if($row['lampiran'] != NULL){
             $row['file'] = "<a href='./admin/file/$row[lampiran]' target='_blank'>File Lampiran</a>";

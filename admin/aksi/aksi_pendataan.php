@@ -84,7 +84,7 @@
             try {
                 $DBcon->beginTransaction();
 
-                if(isset($_FILES)){
+                if(!empty($_FILES)){
                     if(!empty($_FILES['lampiran']['name'])){
                         $filetype = pathinfo($_FILES['lampiran']['name'], PATHINFO_EXTENSION);
                         if($filetype!='') $file = 'file_'.$date.'.'.$filetype;
@@ -115,7 +115,7 @@
                             echo json_encode(array('success'=>false, 'pesan'=>"File lampiran tidak sesuai format !"));
                             break;
                         }
-                    }
+                    }else $file = '';
 
                     if($file=='') $file = NULL;
 
@@ -138,7 +138,7 @@
                     $upd->execute(array($judul, $jenis, $tgl_kasus, $nominal, $deskripsi, $id_data));
                 }
                 $log = $DBcon->prepare("INSERT INTO tb_pendataan_log
-                                                SELECT id_pendataan, judul, jenism tgl_kasus, nominal, deskripsi, lampiran, tgl_entri, '$_SESSION[idu]', 'update', NOW()
+                                                SELECT id_pendataan, judul, jenis, tgl_kasus, nominal, deskripsi, lampiran, tgl_entri, '$_SESSION[idu]', 'update', NOW()
                                                     FROM tb_pendataan WHERE id_pendataan = '$id_data'");
                 $log->execute();
 

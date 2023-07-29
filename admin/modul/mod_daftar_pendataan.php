@@ -137,21 +137,6 @@
 
 <script>
     $(function() {
-        loadTabel();
-        selectJenis();
-    })
-
-    function selectJenis(){
-        $.ajax({
-            type: "POST",
-            url: './admin/model/cb_jenis_rek.php',
-            success: function(data){
-                $("#jenis").html(data);
-            }
-        });
-    }
-
-    function loadTabel(){
         var table = $('#example').DataTable({
             "ajax": {
                 "url": "admin/model/daftar_pendataan.php",
@@ -169,12 +154,23 @@
             }, {
                 "data": "tgl_kasus"
             }, {
-                "data": "nominal"
+                "data": "nominal_rp"
             }, {
                 "data": "tgl_entri"
             }, {
                 "data": "aksi"
             }]
+        });
+        selectJenis();
+    })
+
+    function selectJenis(){
+        $.ajax({
+            type: "POST",
+            url: './admin/model/cb_jenis_rek.php',
+            success: function(data){
+                $("#jenis").html(data);
+            }
         });
     }
 
@@ -200,7 +196,8 @@
             $('#id_data').val(data.id_pendataan);
             $('#judul').val(data.judul);
             $('#jenis').val(data.jenis).trigger('change');
-            $('#tgl_kasus').val(data.tgl_kasus);
+            // $('#tgl_kasus').val(data.tgl_kasus_e);
+            document.querySelector('#tgl_kasus').value = data.tgl_kasus_e;
             $('#nominal').val(data.nominal);
             $('#deskripsi').val(data.deskripsi);
             $('#file_lm').html(data.file);
@@ -245,29 +242,43 @@
                 }else{
                     toastr.success(result.pesan, 'Sukses');
                     resetForm();
+                    $('#modal_edit').modal("hide");
+                    $('#example').DataTable().ajax.reload();
                 }
                 $('#preload').hide();
             }
         });
     }
 
+    function resetForm(){
+        $('#judul').val("");
+        $('#jenis').val("");
+        $('#tgl_kasus').val("");
+        $('#nominal').val("");
+        $('#deskripsi').val("");
+        $('#lampiran').val("");
+        $(":file").filestyle('clear');
+    }
+
     function hapusData(id){
         $("#id_data").val(id);
-        $("$modal_hapus").modal("show");
+        $("#modal_hapus").modal("show");
     }
 
     function deleteData(id){
+        var id = $("#id_data").val();
         $.ajax({
-            url: 'admin/aksi/aksi_pendataan.php?oper=delete',
+            url: 'admin/aksi/aksi_pendataan.php?oper=del',
             type: "POST",
-            data: { id:id },
+            data: { id_data:id },
             success: function(data){
                 var data = eval('('+data+')');
                 if(data.success==false){
                     toastr.error(data.pesan, 'Error');
                 }else{
                     toastr.success(data.pesan, 'Sukses');
-                    loadTabel();
+                    $('#modal_hapus').modal("hide");
+                    $('#example').DataTable().ajax.reload();
                 }
             }
         })

@@ -50,7 +50,7 @@
                 if(result === 'not_found'){
                     toastr.error("Gagal cetak !", 'Error');
                 } else {
-                    window.open('admin/xls/Laporan_jurnal_'+result+'.xlsx', '_blink');
+                    window.open('admin/xls/Laporan_jurnal_umum_'+result+'.xlsx', '_blink');
                 }
             }
         })

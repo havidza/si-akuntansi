@@ -37,7 +37,7 @@ if ($stmt->execute($param)) {
 		if ($r["group_user"] == 101) {
 			header("location:media.php?modul=petataatpbb"); //Direktur
 		} else {
-			header("location:media.php?modul=entri_pendataan");
+			header("location:media.php?modul=dashboard");
 		}
 	} else {
 		echo "<script>alert('Username atau Password salah !');location.href='index.php';</script>";
