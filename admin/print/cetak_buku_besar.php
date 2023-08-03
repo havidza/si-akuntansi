@@ -1,11 +1,13 @@
 <?php
     error_reporting(E_ALL);
-    ini_set('display_errors', FALSE);
-    ini_set('display_startup_errors', FALSE);
+    ini_set('display_errors', TRUE);
+    ini_set('display_startup_errors', TRUE);
+    ini_set('max_execution_time', 6000);
+    ini_set('memory_limit', '-1');
 
     if(PHP_SAPI == 'cli') die('This example should only be run from a web browser');
 
-    require_once dirname(__FILE__) . "../../assets/phpexcel/PHPExcel.php";
+    require_once "../../assets/phpexcel/PHPExcel.php";
     require_once "../../config/db.koneksi_pdo.php";
     require_once "../../config/library.php";
 

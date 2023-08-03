@@ -35,7 +35,7 @@ if ($stmt->execute($param)) {
 		}
 
 		if ($r["group_user"] == 101) {
-			header("location:media.php?modul=petataatpbb"); //Direktur
+			header("location:media.php?modul=dashboard"); //Direktur
 		} else {
 			header("location:media.php?modul=dashboard");
 		}

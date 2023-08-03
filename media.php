@@ -221,6 +221,7 @@ cekUser($DBcon);
                     <i class="fas fa-fw fa-home"></i>
                     <span>Dashboard</span>
                 </a>
+                <?php if($_SESSION['peran']==md5(100)) {?>
                 <a class="nav-link collapsed" href="?modul=daftar_rekening">
                     <i class="fas fa-map"></i>
                     <span>Daftar Rekening</span>
@@ -233,6 +234,8 @@ cekUser($DBcon);
                     <i class="fas fa-map"></i>
                     <span>Daftar Pendataan</span>
                 </a>
+                <?php } 
+                if($_SESSION['peran'] == md5(101)) {?>
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Laporan</span>
@@ -244,6 +247,7 @@ cekUser($DBcon);
                         <a class="collapse-item" href="?modul=neraca_saldo">Neraca Saldo</a>
                     </div>
                 </div>
+                <?php } ?>
                 <!-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Peta</span>

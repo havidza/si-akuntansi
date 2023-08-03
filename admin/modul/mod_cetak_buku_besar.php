@@ -52,6 +52,7 @@
                 } else {
                     window.open('admin/xls/Laporan_buku_besar_'+result+'.xlsx', '_blink');
                 }
+                $('#preload').hide();
             }
         })
     }

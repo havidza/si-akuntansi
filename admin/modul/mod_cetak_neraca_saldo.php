@@ -52,6 +52,7 @@
                 } else {
                     window.open('admin/xls/Laporan_neraca_saldo_'+result+'.xlsx', '_blink');
                 }
+                $('#preload').hide();
             }
         })
     }
