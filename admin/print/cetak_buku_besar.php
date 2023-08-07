@@ -78,8 +78,8 @@
     $baris = 6; $no = 1; $debit = 0; $kredit = 0; $saldo = 0;
     while($rek = $rs->fetch(PDO::FETCH_ASSOC)){
         $dt = $DBcon->prepare("SELECT * FROM tb_pendataan WHERE jenis = '$rek[no_rek]' $filter");
-        $rs->execute();
-        $r = $rs->rowCount();
+        $dt->execute();
+        $r = $dt->rowCount();
         if($r>0){
             $objPHPExcel->setActiveSheetIndex(0)->setCellValue('A'.$baris, "Rek ".$rek['no_rek'])
                                                 ->setCellValue('B'.$baris, $rek['nama_rek']);
@@ -110,8 +110,9 @@
         }
     }
     $baris--;
+    $baris--;
 
-    $objPHPExcel->getActiveSheet()->getStyle("A5:E$baris")->applyFromArray($style1);
+    $objPHPExcel->getActiveSheet()->getStyle("A6:E$baris")->applyFromArray($style1);
 
     $tgl = date("YmdHis");
 
