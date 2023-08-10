@@ -120,10 +120,11 @@
 
     function ubahData(id){
         $('#title_tambah').html("Ubah Rekening");
-        url = "admin/aksi/aksi_rekening.php?oper=edit&no_rek="+id;
+        url = "admin/aksi/aksi_rekening.php?oper=edit";
         $.getJSON('admin/model/data_rekening.php?no_rek='+id, function(data) {
             var data = data.result[0];
             $("#modal_tambah").modal("show");
+            $("#no_rek").val(data.no_rek);
             $("#nama_rek").val(data.nama_rek);
             $("#deskripsi_rek").val(data.deskripsi_rek);
             $("#jenis_rek").val(data.jenis_rek).trigger('change');
