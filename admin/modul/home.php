@@ -1,5 +1,24 @@
 <div class="container-fluid">
     <div class="card shadow mb-4">
+        <div class="row" style="padding: 8px;">
+            <div class="col-sm-6">
+                <div class="card text-white bg-success mb-3">
+                    <div class="card-header" style="background-color: #1cc88a!important"><h2> TOTAL DEBIT </h2></div>
+                    <div class="card-body">
+                        <h3 class="card-title" id="tot_debit"></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card text-white bg-danger mb-3">
+                    <div class="card-header" style="background-color: #e74a3b!important;"><h2> TOTAL KREDIT </h2></div>
+                    <div class="card-body">
+                        <h3 class="card-title" id="tot_kredit"></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
         <div class="row justify-content-center">
             <div class="col-sm-12 text-center">
                 <h3>Pendataan Sampai Tanggal <?php echo date("d-m-Y") ?></h3>
@@ -44,66 +63,81 @@
 </div>
 <script>
     $(function(){
+        var tahun = new Date().getFullYear();
         $.ajax({
-            type: "POST",
-            url: './admin/model/grafik_column.php',
+            url: "admin/model/tot_kredit.php",
+            method: "POST",
             success: function(data){
-                Highcharts.chart('grafik1', {
-                    chart: {
-                        type: 'column'
-                    },
-                    title: {
-                        text: 'Realisasi Anggaran Per '+tahun
-                    },
-                    subtitle: {
-                        text: 'Sumber : BPPKAD KABUPATEN SRAGEN'
-                    },
-                    xAxis: {
-                        categories: data[0].data,
-                        crosshair: true,
-                        title: { text: 'Kode Rekening' }
-                    },
-                    yAxis: {
-                        min: 0,
-                        title: {
-                            text: 'Jumlah Anggaran/Pendapatan (Rp)'
-                        },
-                        labels :{
-                        formatter: function() {
-                            var ret,
-                                numericSymbols = [' rb', ' jt', ' milyar', ' tril', 'P', 'E'],
-                                i = numericSymbols.length;
-                            if(this.value >=1000) {
-                                while (i-- && ret === undefined) {
-                                    multi = Math.pow(1000, i + 1);
-                                    if (this.value >= multi && numericSymbols[i] !== null) {
-                                        ret = (this.value / multi) + numericSymbols[i];
-                                    }
-                                }
-                            }
-                            return (ret ? ret : this.value);
-                        }
-                        }
-                    },
-                    tooltip: {
-                        headerFormat: '<center><span style="font-size:10px;font-weight:bold">{point.key}</span></center><hr><table>',
-                        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                            '<td style="padding:0;color:{series.color}"><b>Rp </b></td>' +
-                            '<td style="padding:0;color:{series.color};text-align:right"><b>{point.y:,.0f}</b></td></tr>',
-                        footerFormat: '</table>',
-                        shared: true,
-                        useHTML: true
-                    },
-                    plotOptions: {
-                        column: {
-                            pointPadding: 0.2,
-                            borderWidth: 0
-                        }
-                    },
-                    series: [data[1],data[2],data[3],data[4]]
-                });
+                $('#tot_kredit').html(data);
             }
-        });	
+        });
+        $.ajax({
+            url: "admin/model/tot_debit.php",
+            method: "POST",
+            success: function(data){
+                $('#tot_debit').html(data);
+            }
+        })
+        // $.ajax({
+        //     type: "POST",
+        //     url: './admin/model/grafik_column.php',
+        //     success: function(data){
+        //         Highcharts.chart('grafik1', {
+        //             chart: {
+        //                 type: 'column'
+        //             },
+        //             title: {
+        //                 text: 'Pendataan Per Jenis Tahun '+tahun
+        //             },
+        //             // subtitle: {
+        //             //     text: 'Sumber : BPPKAD KABUPATEN SRAGEN'
+        //             // },
+        //             xAxis: {
+        //                 categories: data[0].data,
+        //                 crosshair: true,
+        //                 title: { text: 'Kode Rekening' }
+        //             },
+        //             yAxis: {
+        //                 min: 0,
+        //                 title: {
+        //                     text: 'Jumlah Pendataan (Rp)'
+        //                 },
+        //                 labels :{
+        //                 formatter: function() {
+        //                     var ret,
+        //                         numericSymbols = [' rb', ' jt', ' milyar', ' tril', 'P', 'E'],
+        //                         i = numericSymbols.length;
+        //                     if(this.value >=1000) {
+        //                         while (i-- && ret === undefined) {
+        //                             multi = Math.pow(1000, i + 1);
+        //                             if (this.value >= multi && numericSymbols[i] !== null) {
+        //                                 ret = (this.value / multi) + numericSymbols[i];
+        //                             }
+        //                         }
+        //                     }
+        //                     return (ret ? ret : this.value);
+        //                 }
+        //                 }
+        //             },
+        //             tooltip: {
+        //                 headerFormat: '<center><span style="font-size:10px;font-weight:bold">{point.key}</span></center><hr><table>',
+        //                 pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+        //                     '<td style="padding:0;color:{series.color}"><b>Rp </b></td>' +
+        //                     '<td style="padding:0;color:{series.color};text-align:right"><b>{point.y:,.0f}</b></td></tr>',
+        //                 footerFormat: '</table>',
+        //                 shared: true,
+        //                 useHTML: true
+        //             },
+        //             plotOptions: {
+        //                 column: {
+        //                     pointPadding: 0.2,
+        //                     borderWidth: 0
+        //                 }
+        //             },
+        //             series: [data[1],data[2],data[3],data[4]]
+        //         });
+        //     }
+        // });	
     //     $.ajax({
     //         url: "admin/model/home.php",
     //         method: "POST",
